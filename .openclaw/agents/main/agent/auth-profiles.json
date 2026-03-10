@@ -1,0 +1,11 @@
+{
+  "ollama:local": {
+    "type": "api-key",
+    "provider": "ollama",
+    "apiKey": "ollama-local",
+    "baseUrl": "http://127.0.0.1:11434"
+  },
+  "lastGood": {
+    "ollama": "ollama:local"
+  }
+}
