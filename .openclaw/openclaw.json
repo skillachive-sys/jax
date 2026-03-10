@@ -39,7 +39,7 @@
     "bind": "lan",
     "auth": {
       "mode": "token",
-      "token": "jax2026secrettoken99"
+      "token": "REPLACE_WITH_RANDOM_TOKEN"
     },
     "tailscale": {
       "mode": "off",

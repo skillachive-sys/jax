@@ -1,0 +1,9 @@
+# Never commit secrets
+.env
+*.env
+secrets.json
+telegram-token.txt
+
+# OpenClaw credentials
+.openclaw/credentials/
+.openclaw/agents/main/agent/auth-profiles.json

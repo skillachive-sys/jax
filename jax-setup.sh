@@ -68,6 +68,14 @@ else
   echo "Swap already exists, skipping"
 fi
 
+# ── Generate unique gateway token ────────────────────────────
+echo "Generating unique gateway token..."
+TOKEN=$(openssl rand -hex 24)
+sed -i "s/REPLACE_WITH_RANDOM_TOKEN/$TOKEN/" ~/.openclaw/openclaw.json
+echo "Gateway token: $TOKEN" >> ~/.jax-secrets
+chmod 600 ~/.jax-secrets
+echo "Token saved to ~/.jax-secrets"
+
 # ── SSH key setup ──────────────────────────────────────────────
 echo "[7/10] Setting up SSH keys..."
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
