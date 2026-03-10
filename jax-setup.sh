@@ -4,7 +4,7 @@
 # Usage: curl -s URL | bash   OR   bash jax-setup.sh
 
 # Don't exit on error - log failures and continue
-FAILED=[]
+FAILED=()
 
 run() {
   echo "Running: $1"
