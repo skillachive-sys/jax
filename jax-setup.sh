@@ -35,10 +35,19 @@ sudo apt-get install -y -qq \
   unzip zip \
   screen tmux
 
-# ── Node.js 22 ─────────────────────────────────────────────────
+# ── Node.js 22 via nvm ────────────────────────────────────────
 echo "[3/10] Installing Node.js 22..."
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - -qq
-sudo apt-get install -y -qq nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+nvm install 22
+nvm use 22
+nvm alias default 22
+# Make node/npm available to sudo
+NODE_PATH=$(which node)
+NPM_PATH=$(which npm)
+sudo ln -sf "$NODE_PATH" /usr/local/bin/node
+sudo ln -sf "$NPM_PATH" /usr/local/bin/npm
 echo "Node: $(node --version) | npm: $(npm --version)"
 
 # ── Ollama ─────────────────────────────────────────────────────
